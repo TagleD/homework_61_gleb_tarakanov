@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.http import Http404
 from django.shortcuts import get_object_or_404
@@ -61,14 +62,13 @@ class TaskDetailView(DetailView):
         return context
 
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['types'] = self.object.type.all()
         return context
 
 
-class TaskAddView(CreateView):
+class TaskAddView(LoginRequiredMixin, CreateView):
     template_name = 'task/add_task.html'
     model = Task
     form_class = TaskForm
@@ -77,7 +77,7 @@ class TaskAddView(CreateView):
         return reverse('detail_view', kwargs={'pk': self.object.pk})
 
 
-class TaskUpdateView(UpdateView):
+class TaskUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'task/update_task.html'
     form_class = TaskForm
     model = Task
@@ -86,7 +86,7 @@ class TaskUpdateView(UpdateView):
         return reverse('detail_view', kwargs={'pk': self.object.pk})
 
 
-class TaskDeleteView(DeleteView):
+class TaskDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'task/confirm_delete.html'
     model = Task
     success_url = reverse_lazy('tasks_view')

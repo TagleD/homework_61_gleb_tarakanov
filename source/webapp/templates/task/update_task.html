@@ -2,6 +2,13 @@
 
 {% block title %}Редактирование задачи{% endblock %}
 
+{% block add_task %}
+    <li class="nav-item">
+        <a class="nav-link active white" aria-current="page" href="{% url 'add_view' %}">Добавить
+            задачу</a>
+    </li>
+{% endblock %}
+
 {% block content %}
     <div class="container main-container">
         <div class="row d-flex justify-content-center">

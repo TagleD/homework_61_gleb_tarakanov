@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-    width: 1081px;
+    width: 1139px;
 }
 
 .nav-menu-back {
@@ -128,5 +128,17 @@ button {
     border-color: #1bb9da;
     margin-bottom: -40px;
     margin-left: 15px;
+}
+
+.hello-text {
+    margin-bottom: -20px;
+}
+
+.end-page-margin{
+    margin-bottom: 50px;
+}
+
+.main-image {
+    max-width: 1030px;
 }
 

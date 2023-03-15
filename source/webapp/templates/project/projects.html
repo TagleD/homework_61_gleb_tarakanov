@@ -2,6 +2,14 @@
 
 {% block title %}Проекты{% endblock %}
 
+{% block add_task %}
+    <li class="nav-item">
+        <a class="nav-link active white" aria-current="page" href="{% url 'add_view' %}">Добавить
+            задачу
+        </a>
+    </li>
+{% endblock %}
+
 {% block project_menu %}
     <li class="nav-item">
         <a class="nav-link active white" aria-current="page" href="{% url 'project_create' %}">
