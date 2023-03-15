@@ -38,14 +38,23 @@
                             <a class="nav-link active white center-link" aria-current="page"
                                href="{% url 'tasks_view' %}">Посмотреть задачи</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active white" aria-current="page" href="{% url 'add_view' %}">Добавить
-                                задачу</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active white" aria-current="page" href="{% url 'login' %}">Войти</a>
-                        </li>
-                        {% block menu %}{% endblock %}
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link active white" aria-current="page" href="{% url 'add_view' %}">Добавить
+                                    задачу</a>
+                            </li>
+                            {% block project_menu %}{% endblock %}
+                            <li>
+                                <form action="{% url 'logout' %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="submit" class="btn btn-primary login-buttons" value="Выйти">
+                                </form>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link active white" aria-current="page" href="{% url 'login' %}">Войти</a>
+                            </li>
+                        {% endif %}
                     </ul>
                     {% block search %}{% endblock %}
                 </div>

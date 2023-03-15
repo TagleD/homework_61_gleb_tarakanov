@@ -41,7 +41,7 @@ class ProjectCreateView(CreateView):
 
 class ProjectTaskCreateView(CreateView):
     model = Task
-    template_name = 'project/task_create.html'
+    template_name = 'project/project_task_create.html'
     form_class = ProjectTaskForm
 
     def form_valid(self, form):

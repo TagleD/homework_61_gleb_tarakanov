@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-    width: 1000px;
+    width: 1081px;
 }
 
 .nav-menu-back {
@@ -121,5 +121,12 @@ button {
 .search-button {
     margin-left: 15px;
     padding-bottom: 29px;
+}
+
+.login-buttons {
+    background: #1bb9da;
+    border-color: #1bb9da;
+    margin-bottom: -40px;
+    margin-left: 15px;
 }
 

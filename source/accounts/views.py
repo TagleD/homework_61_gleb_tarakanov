@@ -1,5 +1,6 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
+from django.views import View
 from django.views.generic import TemplateView
 
 from accounts.forms import LoginForm
@@ -28,3 +29,8 @@ class LoginView(TemplateView):
         #     return redirect(next)
         login(request, user)
         return redirect('index')
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('index')
