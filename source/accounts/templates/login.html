@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load django_bootstrap5 %}
+
+{% block content %}
+    <div class="container main-container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-5 card text-bg-light form-margins">
+                <h3>Войдите в аккаунт</h3>
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    {% load django_bootstrap5 %}
+                    {% bootstrap_form form %}
+                    <div class="form_row">
+                        {% bootstrap_button button_type="submit" button_class='btn btn-primary green' content='Войти' %}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{#<div class="container main-container">#}
+{#    <div class="row d-flex justify-content-center">#}
+{#        <div class="col-5 card text-bg-light form-margins">#}
+{#            <h3>Добавление задачи</h3>#}
+{#            <form action="{% url 'add_view' %}" method="post">#}
+{#                {% include 'partial/add_update_form.html' with button_text='Создать' %}#}
+{#            </form>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{##}
+{#{% csrf_token %}#}
+{#{% load django_bootstrap5 %}#}
+{#{% bootstrap_form form %}#}
+{##}
+{##}
+{#<div class="form_row">#}
+{#    {% bootstrap_button button_type="submit" button_class='btn btn-primary green' content=button_text %}#}
+{#</div>#}
