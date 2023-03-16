@@ -14,11 +14,10 @@ class TasksView(ListView):
 
     context_object_name = 'tasks'
     model = Task
-    ordering = ['created_at']
+    ordering = ['-updated_at']
 
     paginate_by = 9
     paginate_orphans = 1
-
 
     def get(self, request, *args, **kwargs):
         self.form = self.get_search_form()
@@ -35,8 +34,6 @@ class TasksView(ListView):
     def get_queryset(self):
         queryset = super().get_queryset().exclude(is_deleted=True)
         if self.search_value:
-            # Сделал по title и description, так как в этом проекте title выполняет
-            # функцию краткого описания
             query = Q(title__icontains=self.search_value) | Q(description__icontains=self.search_value)
             queryset = queryset.filter(query)
         return queryset
@@ -60,7 +57,6 @@ class TaskDetailView(DetailView):
         if task.is_deleted == True:
             raise Http404
         return context
-
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

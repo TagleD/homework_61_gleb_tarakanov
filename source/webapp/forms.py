@@ -2,12 +2,11 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import BaseValidator, MinLengthValidator
 from django.forms import Textarea
-
 from webapp.models import Task, Project
 
 
 class CustomLengthValidator(BaseValidator):
-    def __init__(self, limit_value=30):
+    def __init__(self, limit_value=50):
         message = ('Максимальная длина заголовка %(limit_value)s. Вы ввели %(show_value)s символов.')
         super().__init__(limit_value=limit_value, message=message)
 

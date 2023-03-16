@@ -1,8 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
-from django.views import View
 from django.views.generic import TemplateView
-
 from accounts.forms import LoginForm
 
 
