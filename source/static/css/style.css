@@ -150,3 +150,19 @@ button {
     height: 57px;
 }
 
+.more-button{
+    background: #1bb9da;
+    border-color: #1bb9da;
+}
+
+.edit-button {
+    margin-left: -21px;
+}
+
+.project-description {
+    padding-left: 60px;
+    margin-top: -23px;
+    margin-bottom: 50px;
+    font-size: 20px;
+}
+
