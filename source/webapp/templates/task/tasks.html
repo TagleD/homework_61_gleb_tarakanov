@@ -16,7 +16,7 @@
     <div class="container main-container">
         <div class="row">
             <div class="col">
-                <h1 class="padding-left-tasks">
+                <h1 class="project-task-name-left">
                     Список задач
                 </h1>
             </div>
@@ -27,18 +27,29 @@
 
                     <div class="col-4 padding-left-tasks task-top">
                         <div class="row">
-                            <h4 class="title-card-height"><b>{{ task.title|truncatechars:43 }}</b></h4>
-                            <p class="description-height">{{ task.description|truncatechars:102 }}</p>
-                            <p><b>{{ task.status }}</b></p>
-                            <p><a href="{% url 'detail_view' task.pk %}">Подробнее</a></p>
+                            <div class="col-12">
+                                <h4 class="title-card-height"><b>{{ task.title|truncatechars:43 }}</b></h4>
+                            </div>
+                            <div class="col-12">
+                                <p class="description-height">{{ task.description|truncatechars:101 }}</p>
+                            </div>
+                            <div class="col-12">
+                                <p><b>{{ task.status }}</b></p>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-4">
-                                <a href="{% url 'task_delete' task.pk %}" class='btn btn-danger'>Удалить</a>
+                                <p><a class="btn btn-primary more-button" href="{% url 'detail_view' task.pk %}">Подробнее</a>
+                                </p>
                             </div>
-                            <div class="col-3">
-                                <a href="{% url 'task_update' task.pk %}" class='btn btn-success'>Изменить</a>
-                            </div>
+                            {% if user.is_authenticated %}
+                                <div class="col-4">
+                                    <a href="{% url 'task_delete' task.pk %}" class='btn btn-danger'>Удалить</a>
+                                </div>
+                                <div class="col-3">
+                                    <a href="{% url 'task_update' task.pk %}" class='btn btn-success edit-button'>Изменить</a>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}

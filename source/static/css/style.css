@@ -160,9 +160,13 @@ button {
 }
 
 .project-description {
-    padding-left: 60px;
+    padding-left: 29px;
     margin-top: -23px;
     margin-bottom: 50px;
     font-size: 20px;
+}
+
+.project-task-name-left{
+    padding-left: 10px;
 }
 
